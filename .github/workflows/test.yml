@@ -2,12 +2,12 @@ name: Github Actions Test
 on:
   workflow_dispatch:
 
-env:
-  project: "development"
-
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "PROJECT: ${{ env.project }}"
+      - name: dev
+        run: |
+          echo "PROJECT: $PROJECT"
+        env:
+          PROJECT: develop
