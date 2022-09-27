@@ -15,4 +15,4 @@ jobs:
       - name: prd
         if: github.event_name == 'release'
         run: |
-          echo "PROJECT : prd"
+          echo "PROJECT : prd test2"
