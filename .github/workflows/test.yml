@@ -1,13 +1,18 @@
 name: Github Actions Test
 on:
   workflow_dispatch:
+  release:
+    types: [published]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - name: dev
+        if: github.event_name == 'workflow_dispatch'
         run: |
-          echo "PROJECT: $PROJECT"
-        env:
-          PROJECT: develop
+          echo "PROJECT : dev"
+      - name: prd
+        if: github.event_name == 'release'
+        run: |
+          echo "PROJECT : prd"
